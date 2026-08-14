@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramakrishna Gaddam, MSHI, CPC, CCS | Portfolio</title>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         :root {
             --primary: #0f172a;
@@ -25,6 +29,7 @@
             color: var(--text-dark);
             background-color: #ffffff;
             line-height: 1.6;
+            overflow-x: hidden; /* Prevents horizontal scroll during animations */
         }
 
         header {
@@ -50,6 +55,11 @@
             border: 4px solid var(--accent);
             background-color: #ffffff;
             flex-shrink: 0;
+            transition: transform 0.4s ease; /* Hover Transition */
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05) rotate(3deg); /* Hover Effect */
         }
 
         .header-text {
@@ -75,6 +85,22 @@
             margin-bottom: 1.25rem;
         }
 
+        /* Initial Page Load Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header-text h1, .header-text .subtitle, .header-text .location, .contact-links {
+            animation: fadeInDown 0.8s ease-out forwards;
+            opacity: 0; 
+        }
+        
+        .header-text h1 { animation-delay: 0.1s; }
+        .header-text .subtitle { animation-delay: 0.3s; }
+        .header-text .location { animation-delay: 0.5s; }
+        .contact-links { animation-delay: 0.7s; }
+
         .contact-links a {
             color: #ffffff;
             background-color: var(--accent);
@@ -84,6 +110,11 @@
             font-size: 0.9rem;
             margin-right: 0.5rem;
             display: inline-block;
+            transition: background-color 0.2s;
+        }
+
+        .contact-links a:hover {
+            background-color: #1d4ed8;
         }
 
         .container {
@@ -116,6 +147,12 @@
             padding: 1.5rem;
             background-color: var(--bg-light);
             margin-bottom: 1.25rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover Transition */
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Hover Effect */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Hover Effect */
         }
 
         .card h3 {
@@ -153,13 +190,8 @@
         }
 
         @media (max-width: 640px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-links a {
-                margin: 0.25rem;
-            }
+            .header-container { flex-direction: column; text-align: center; }
+            .contact-links a { margin: 0.25rem; }
         }
     </style>
 </head>
@@ -185,23 +217,23 @@
 
     <div class="container">
         
-        <section>
+        <section data-aos="fade-up">
             <h2>Professional Summary</h2>
             <p>Outpatient Coding Education Analyst at UW Medicine leveraging expertise in compliance management, business process improvement, and full-cycle revenue cycle operations. Dedicated to enhancing coding accuracy, reducing claim denials, supporting clinical staff, and ensuring adherence to ICD-10, CPT, and HCPCS standards across healthcare organizations.</p>
         </section>
 
         <section>
-            <h2>Skills & Expertise</h2>
+            <h2 data-aos="fade-up">Skills & Expertise</h2>
             <div class="grid">
-                <div class="card" style="margin-bottom: 0;">
+                <div class="card" style="margin-bottom: 0;" data-aos="fade-up" data-aos-delay="100">
                     <h3>Systems & Billing</h3>
                     <p>EPIC Resolute Professional Billing, Full-Cycle RCM, Denials & Appeals, Claims Processing.</p>
                 </div>
-                <div class="card" style="margin-bottom: 0;">
+                <div class="card" style="margin-bottom: 0;" data-aos="fade-up" data-aos-delay="200">
                     <h3>Coding Standards</h3>
                     <p>ICD-10-CM, CPT, HCPCS, Interventional Radiology, Outpatient & E/M Coding.</p>
                 </div>
-                <div class="card" style="margin-bottom: 0;">
+                <div class="card" style="margin-bottom: 0;" data-aos="fade-up" data-aos-delay="300">
                     <h3>Analytics & Quality</h3>
                     <p>Healthcare Analytics, SNOMED CT, Internal Audits, Quality Assurance, Coder Education.</p>
                 </div>
@@ -209,9 +241,9 @@
         </section>
 
         <section>
-            <h2>Professional Experience</h2>
-
-            <div class="card">
+            <h2 data-aos="fade-up">Professional Experience</h2>
+            
+            <div class="card" data-aos="fade-up">
                 <h3>Outpatient Coding Education Analyst</h3>
                 <div class="company">UW Medicine</div>
                 <div class="date-location">July 2026 – Present | 🇺🇸 Seattle, WA</div>
@@ -221,7 +253,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-aos="fade-up">
                 <h3>Quality Assurance Analyst</h3>
                 <div class="company">GeBBS Healthcare Solutions</div>
                 <div class="date-location">September 2022 – December 2023 | 🇮🇳 Navi Mumbai, India</div>
@@ -233,7 +265,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-aos="fade-up">
                 <h3>Certified Senior Medical Coder</h3>
                 <div class="company">GeBBS Healthcare Solutions</div>
                 <div class="date-location">March 2021 – September 2022 | 🇮🇳 Mumbai, Maharashtra, India</div>
@@ -245,7 +277,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-aos="fade-up">
                 <h3>Certified Senior Medical Coder</h3>
                 <div class="company">Reventics — A Provider Engagement Company</div>
                 <div class="date-location">November 2020 – February 2021 | 🇮🇳 Hyderabad, Telangana, India</div>
@@ -255,7 +287,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-aos="fade-up">
                 <h3>Senior Medical Coder</h3>
                 <div class="company">Omega Healthcare Management Services Private Limited</div>
                 <div class="date-location">June 2019 – November 2020 | 🇮🇳 Chennai, Tamil Nadu, India</div>
@@ -266,7 +298,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="card" data-aos="fade-up">
                 <h3>Jr. Executive Verifier & Coder</h3>
                 <div class="company">PhyCARE Services India Pvt. Ltd.</div>
                 <div class="date-location">August 2018 – June 2019 | 🇮🇳 Hyderabad, Telangana, India</div>
@@ -276,10 +308,9 @@
                     <li>Collaborated with healthcare professionals to ensure precise documentation and billing alignment.</li>
                 </ul>
             </div>
-
         </section>
 
-        <section>
+        <section data-aos="fade-up">
             <h2>Certifications & Accreditation</h2>
             <ul>
                 <li><strong>CPC:</strong> Certified Professional Coder — <em>AAPC (American Academy of Professional Coders)</em></li>
@@ -289,7 +320,7 @@
             </ul>
         </section>
 
-        <section>
+        <section data-aos="fade-up">
             <h2>Education</h2>
             <ul>
                 <li><strong>Master of Science in Health Informatics (MSHI)</strong> — Roosevelt University (2024 – 2025) | 🇺🇸 United States</li>
@@ -303,5 +334,14 @@
         <p>&copy; 2026 Ramakrishna Gaddam. Hosted on GitHub Pages.</p>
     </footer>
 
+    <!-- AOS Script Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // Animation duration (in ms)
+            once: true,    // Whether animation should happen only once while scrolling down
+            offset: 50     // Trigger point
+        });
+    </script>
 </body>
 </html>
